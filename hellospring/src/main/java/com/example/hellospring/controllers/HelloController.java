@@ -3,6 +3,7 @@ package com.example.hellospring.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -24,4 +25,17 @@ public class HelloController {
 		
 		return mav;
 	}
+	
+	//	String 을 반환하면 기본적으로 뷰 이름을 의미
+	@RequestMapping("/hello2")
+	public String hello2() {
+		return "/WEB-INF/views/hello.jsp";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/hello3")
+	public String hello3() {
+		return "<h3>Direct Response</h3>";
+	}
+	
 }
